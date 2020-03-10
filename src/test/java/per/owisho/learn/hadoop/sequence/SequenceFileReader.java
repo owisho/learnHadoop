@@ -13,7 +13,7 @@ import java.net.URI;
 public class SequenceFileReader {
 
     static Configuration configuration = new Configuration();
-    private static String url = "hdfs://hadoop:8020";
+    private static String url = "hdfs://hadoop000:8020";
 
     public static void main(String[] args) throws Exception {
         FileSystem fs = FileSystem.get(URI.create(url), configuration);
