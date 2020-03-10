@@ -45,6 +45,11 @@ public class HDFSApp {
     }
 
     @Test
+    public void remove() throws Exception{
+        fileSystem.delete(new Path("/hdfsapi/test1"),true);
+    }
+
+    @Test
     public void rename() throws Exception {
         Path oldPath = new Path("/hdfsapi/test/a.txt");
         Path newPath = new Path("/hdfsapi/test/b.txt");
