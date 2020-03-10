@@ -7,11 +7,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URI;
 
 public class HDFSApp {
 
-    public static final String HDFS_PATH = "hdfs://139.9.112.228:8020";
+    public static final String HDFS_PATH = "hdfs://hadoop000:8020";
 
     Configuration configuration = null;
 
@@ -21,6 +23,7 @@ public class HDFSApp {
     public void setUp() throws Exception {
         System.out.println("HDFSApp.setUp()");
         configuration = new Configuration();
+        configuration.set("dfs.client.use.datanode.hostname", "true");
         fileSystem = FileSystem.get(new URI(HDFS_PATH), configuration);
     }
 
@@ -85,6 +88,18 @@ public class HDFSApp {
                 System.out.println(host);
             }
         }
+    }
+
+    @Test
+    public void readFile() throws Exception{
+        FSDataInputStream stream = fileSystem.open(new Path("/hdfsapi/test/a.txt"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+        String content = null;
+        while((content=reader.readLine())!=null){
+            System.out.println(content);
+        }
+        reader.close();
+        stream.close();
     }
 
 }
