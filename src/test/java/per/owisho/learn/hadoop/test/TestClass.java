@@ -22,8 +22,8 @@ public class TestClass {
      * read file Test
      */
     public static void readFileTest() throws URISyntaxException, IOException {
-        FileSystem fileSystem = FileSystem.get(new URI("http://hadoop000:8020"), new Configuration());
-        FSDataInputStream fsDataInputStream = fileSystem.open(new Path("/hdfsapi/test/a.txt"));
+        FileSystem fileSystem = FileSystem.get(new URI("hdfs://hadoop000:8020"), new Configuration());
+        FSDataInputStream fsDataInputStream = fileSystem.open(new Path("/outputwc/part-r-00000"));
         ByteBuffer byteBuffer = ByteBuffer.allocate(2048);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (fsDataInputStream.read(byteBuffer) > 0) {
