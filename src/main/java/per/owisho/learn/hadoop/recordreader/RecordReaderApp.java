@@ -83,7 +83,11 @@ public class RecordReaderApp {
     public static class MyMapper extends Mapper<LongWritable, Text, LongWritable, Text> {
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-            context.write(key, value);
+            String[] arr = value.toString().split("\t");
+            if(arr.length==2){
+                value.set(arr[1]);
+                context.write(key, value);
+            }
         }
     }
 
