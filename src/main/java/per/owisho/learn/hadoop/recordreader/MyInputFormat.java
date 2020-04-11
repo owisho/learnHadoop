@@ -14,8 +14,8 @@ import java.io.IOException;
 public class MyInputFormat extends FileInputFormat<LongWritable, Text> {
     @Override
     public RecordReader<LongWritable, Text> createRecordReader(InputSplit split, TaskAttemptContext context) throws IOException, InterruptedException {
-        //TODO
-        return null;
+        //返回自定义的RecorderReader
+        return new RecordReaderApp.MyRecordReader();
     }
 
     @Override
