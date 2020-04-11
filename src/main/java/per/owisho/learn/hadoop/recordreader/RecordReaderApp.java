@@ -112,8 +112,8 @@ public class RecordReaderApp {
 
     //driver
     public static void main(String[] args) throws Exception {
-        String INPUT_PATH = "hdfs://hadoop000:8020/recorder";
-        String OUTPUT_PATH = "hdfs://hadoop000:8020/outputrecorder";
+        String INPUT_PATH = "hdfs://hadoop000:8020/recordreader";
+        String OUTPUT_PATH = "hdfs://hadoop000:8020/outputrecordreader";
         Configuration conf = new Configuration();
         final FileSystem fileSystem = FileSystem.get(new URI(INPUT_PATH), conf);
         if (fileSystem.exists(new Path(OUTPUT_PATH))) {
