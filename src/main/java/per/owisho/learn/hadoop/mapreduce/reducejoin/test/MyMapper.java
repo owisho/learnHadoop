@@ -1,14 +1,15 @@
 package per.owisho.learn.hadoop.mapreduce.reducejoin.test;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class MyMapper extends Mapper<Text, Text, Text, ArticleInfo> {
+public class MyMapper extends Mapper<LongWritable, Text, Text, ArticleInfo> {
     @Override
-    protected void map(Text key, Text value, Context context) throws IOException, InterruptedException {
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String val = value.toString();
         String[] arr = val.split("\t");
         ArticleInfo info = new ArticleInfo();
