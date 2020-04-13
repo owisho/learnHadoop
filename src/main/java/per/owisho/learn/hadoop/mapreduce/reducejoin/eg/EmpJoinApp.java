@@ -1,4 +1,4 @@
-package per.owisho.learn.hadoop.mapreduce.reducejoin;
+package per.owisho.learn.hadoop.mapreduce.reducejoin.eg;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;

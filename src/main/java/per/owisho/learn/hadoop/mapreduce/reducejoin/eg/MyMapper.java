@@ -1,4 +1,4 @@
-package per.owisho.learn.hadoop.mapreduce.reducejoin;
+package per.owisho.learn.hadoop.mapreduce.reducejoin.eg;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
