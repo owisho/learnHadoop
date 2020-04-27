@@ -72,12 +72,13 @@ public class MobileFlowApp {
         String OUTPUT_FILE = "hdfs://hadoop000:8020/outputMobileTestInfo";
 
         Configuration conf = new Configuration();
-        FileSystem fileSystem = FileSystem.get(new URI(INPUT_FILE),conf);
-        if(fileSystem.exists(new Path(OUTPUT_FILE))){
-            fileSystem.delete(new Path(OUTPUT_FILE),true);
+        FileSystem fileSystem = FileSystem.get(new URI(INPUT_FILE), conf);
+        if (fileSystem.exists(new Path(OUTPUT_FILE))) {
+            fileSystem.delete(new Path(OUTPUT_FILE), true);
         }
 
         Job job = Job.getInstance(conf, "Mobile Info Test");
+        FileInputFormat.setInputPaths(job, INPUT_FILE);
         job.setJarByClass(MobileFlow.class);
         job.setMapperClass(MyMapper.class);
         job.setReducerClass(MyReducer.class);
