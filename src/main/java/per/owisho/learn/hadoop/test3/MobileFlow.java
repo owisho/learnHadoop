@@ -95,4 +95,9 @@ public class MobileFlow implements WritableComparable<MobileFlow> {
         this.upPayLoad = in.readLong();
         this.downPayLoad = in.readLong();
     }
+
+    @Override
+    public String toString() {
+        return msisdn + "\t" + upPackNum + "\t" + downPackNum + "\t" + upPayLoad + "\t" + downPayLoad;
+    }
 }
