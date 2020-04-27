@@ -83,8 +83,8 @@ public class MobileFlow implements WritableComparable<MobileFlow> {
         out.writeUTF(msisdn);
         out.writeLong(upPackNum);
         out.writeLong(downPackNum);
-        out.writeLong(upPackNum);
-        out.writeLong(downPackNum);
+        out.writeLong(upPayLoad);
+        out.writeLong(downPayLoad);
     }
 
     @Override
