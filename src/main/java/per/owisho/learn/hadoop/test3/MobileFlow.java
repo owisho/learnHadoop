@@ -14,6 +14,9 @@ public class MobileFlow implements WritableComparable<MobileFlow> {
     private Long upPayLoad;
     private Long downPayLoad;
 
+    public MobileFlow() {
+    }
+
     public MobileFlow(String msisdn, Long upPackNum, Long downPackNum, Long upPayLoad, Long downPayLoad) {
         this.msisdn = msisdn;
         this.upPackNum = upPackNum;
@@ -22,7 +25,7 @@ public class MobileFlow implements WritableComparable<MobileFlow> {
         this.downPayLoad = downPayLoad;
     }
 
-    public MobileFlow(MobileFlow info){
+    public MobileFlow(MobileFlow info) {
         this.msisdn = info.msisdn;
         this.upPackNum = info.upPackNum;
         this.downPackNum = info.downPackNum;
