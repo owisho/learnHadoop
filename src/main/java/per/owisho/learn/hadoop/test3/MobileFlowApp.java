@@ -4,7 +4,7 @@ import com.google.common.base.Splitter;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -23,9 +23,9 @@ public class MobileFlowApp {
 
     static Splitter sp = Splitter.on("\t").trimResults();
 
-    static class MyMapper extends Mapper<IntWritable, Text, Text, MobileFlow> {
+    static class MyMapper extends Mapper<LongWritable, Text, Text, MobileFlow> {
         @Override
-        protected void map(IntWritable key, Text value, Context context) throws IOException, InterruptedException {
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             String content = value.toString();
             //TODO 搞懂splitter源码
             Iterable<String> itr = sp.split(content);
