@@ -9,7 +9,6 @@ import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
-import org.apache.hadoop.hbase.client.TableDescriptor;
 import org.apache.hadoop.hbase.util.Bytes;
 
 import java.io.IOException;
@@ -20,11 +19,11 @@ public class HBaseTest {
     static Configuration cfg = HBaseConfiguration.create();
 
     public static void main(String[] args) throws IOException {
-        create("scores","grade","course");
+        create("scores", "grade", "course");
         describe("scores");
-        addColumnFamily("scores","f1","f2");
+        addColumnFamily("scores", "f1", "f2");
         describe("scores");
-        removeColumnFamily("scores","f1");
+        removeColumnFamily("scores", "f1");
         describe("scores");
         list();
     }
@@ -75,7 +74,7 @@ public class HBaseTest {
         for (String familyName : familyNames)
             htd.addFamily(new HColumnDescriptor(familyName));
 
-        admin.modifyTable(htd);
+        admin.modifyTable(tn, htd);
 
         conn.close();
     }
@@ -90,7 +89,7 @@ public class HBaseTest {
         for (String familyName : familyNames)
             htd.removeFamily(Bytes.toBytes(familyName));
 
-        admin.modifyTable(htd);
+        admin.modifyTable(tn, htd);
 
         conn.close();
     }
@@ -103,7 +102,7 @@ public class HBaseTest {
         TableName tn = TableName.valueOf(tableName);
         HTableDescriptor htd = admin.getTableDescriptor(tn);
         System.out.println("===descibe " + tableName + " :===");
-        for(HColumnDescriptor hcd:htd.getColumnFamilies()){
+        for (HColumnDescriptor hcd : htd.getColumnFamilies()) {
             System.out.println(hcd.getNameAsString());
         }
         System.out.println("================");
