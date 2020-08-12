@@ -96,7 +96,7 @@
                     <archive>
                         <manifest>
                             <!-- 此处指定main方法入口的class -->
-                            <mainClass>per.owisho.learn.hadoop.tablemapper.TableMapperDemo</mainClass>
+                            <mainClass>per.owisho.learn.hadoop.tablemapper.ParamsTableMapperDemo</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
