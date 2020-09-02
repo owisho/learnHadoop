@@ -16,8 +16,8 @@ import java.net.URI;
 public class MyTestApp {
 
     public static void main(String[] args) throws Exception {
-        String INPUT_PATH = "hdfs://hadoop000:8020/testJoin";
-        String OUTPUT_PATH = "hdfs://hadoop000:8020/outputTestJoin";
+        String INPUT_PATH = "hdfs://localhost:9000/testJoin";
+        String OUTPUT_PATH = "hdfs://localhost:9000/outputTestJoin";
         Configuration conf = new Configuration();
         final FileSystem fileSystem = FileSystem.get(new URI(INPUT_PATH), conf);
         if (fileSystem.exists(new Path(OUTPUT_PATH))) {

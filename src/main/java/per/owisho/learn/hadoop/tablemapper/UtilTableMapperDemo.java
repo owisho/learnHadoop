@@ -1,6 +1,5 @@
 package per.owisho.learn.hadoop.tablemapper;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -20,7 +19,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UtilTableMapperDemo {
@@ -50,9 +48,9 @@ public class UtilTableMapperDemo {
         conf.set(TableInputFormat.SCAN_COLUMNS, "info:name info:gender");
         Job job = Job.getInstance(conf, "hbase-mapreduce-api");
         //Map Reduce 程序作业基本配置
-        job.setJarByClass(TableMapperDemo.class);//通过驱动类的jar文件查找
+        job.setJarByClass(UtilTableMapperDemo.class);//通过驱动类的jar文件查找
         job.setInputFormatClass(TableInputFormat.class);//输入格式
-        job.setMapperClass(TableMapperDemo.MyMapper.class);
+        job.setMapperClass(UtilTableMapperDemo.MyMapper.class);
         job.setMapOutputKeyClass(Text.class);//Mapper输出键类型
         job.setMapOutputValueClass(Text.class);//Mapper输出值类型
 
